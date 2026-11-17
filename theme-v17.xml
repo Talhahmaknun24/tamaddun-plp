@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<meta content='#084f2b' name='theme-color'/>
+<b:include data='blog' name='all-head-content'/>
+<title><data:blog.pageTitle/></title>
+<link href='https://raw.githubusercontent.com/Talhahmaknun24/tamaddun-plp/main/logo-header.png' rel='icon' type='image/png'/>
+<link href='https://fonts.googleapis.com' rel='preconnect'/>
+<link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
+<link href='https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+<!-- MONETAG_HEAD_SLOT -->
+<b:skin><![CDATA[
+:root{
+  --green:#2679CE; --green-2:#0e8a4a; --green-dark:#0A2540; --green-deep:#2F3540;
+  --gold:#D4AF37; --gold-light:#f3c94b; --ink:#16232E; --muted:#5B6B7F;
+  --bg:#F5F7FA; --card:#ffffff; --line:#DFE7F0; --radius:16px;
+  --shadow:0 6px 24px rgba(10,37,64,.10); --shadow-lg:0 16px 40px rgba(10,37,64,.18);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Hind Siliguri','Noto Sans Bengali',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+::selection{background:var(--gold-light)}
+.top-strip{height:4px;background:linear-gradient(90deg,#0038D6,#2679CE,#38BDF8,#2679CE,#0038D6)}
+/* ============ Header ============ */
+.site-header{background:#ffffff;color:var(--ink);position:sticky;top:0;z-index:60;box-shadow:0 2px 14px rgba(10,37,64,.10);border-bottom:1px solid var(--line)}
+.header-in{max-width:1200px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:13px;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand img{height:50px;width:auto;display:block}
+.brand .bname{font-size:27px;font-weight:700;line-height:1.1;letter-spacing:.2px;color:var(--green-dark)}
+.brand .btag{font-size:12.5px;color:var(--muted);letter-spacing:.2px}
+.header-search{margin-left:auto;display:flex;background:#f2f7f3;border-radius:999px;overflow:hidden;border:2px solid var(--line)}
+.header-search:focus-within{border-color:var(--gold)}
+.header-search input{border:none;padding:10px 18px;font-size:15px;width:240px;outline:none;font-family:inherit;color:var(--ink)}
+.header-search button{background:linear-gradient(180deg,var(--green-2),var(--green));color:#fff;border:none;padding:10px 22px;font-weight:700;cursor:pointer;font-family:inherit;font-size:15px}
+.header-search button:hover{filter:brightness(1.06)}
+@media(max-width:640px){.header-search{width:100%;margin-left:0}.header-search input{flex:1;width:auto}}
+/* ============ Nav ============ */
+.main-nav{background:#eef6f0;border-bottom:1px solid var(--line);position:sticky;top:71px;z-index:55}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 12px;display:flex;gap:2px;flex-wrap:wrap}
+.main-nav a{color:var(--ink);font-weight:600;padding:12px 13px;font-size:15.5px;border-bottom:3px solid transparent;transition:.15s}
+.main-nav a:hover{color:var(--green);text-decoration:none;border-bottom-color:var(--gold);background:#f2f8f3}
+@media(max-width:640px){.main-nav{top:118px}}
+/* ============ Hero ============ */
+.hero{position:relative;overflow:hidden;background:radial-gradient(760px 320px at 88% -30%,rgba(56,189,248,.35),transparent 60%),linear-gradient(120deg,#3B8BD9,#2679CE 52%,#1D63B8);color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 4 L44 24 L24 44 L4 24 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.07'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%2338BDF8' fill-opacity='0.08'/%3E%3C/svg%3E");pointer-events:none}
+.hero::after{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.35);border-radius:18px;pointer-events:none}
+.hero-in,.cat-tiles{position:relative;z-index:1}
+.hero-in::after{content:"অ";position:absolute;right:1%;top:50%;transform:translateY(-52%);font-size:320px;font-weight:800;line-height:1;color:rgba(255,255,255,.05);pointer-events:none}
+.hero-in{max-width:1200px;margin:0 auto;padding:34px 18px 30px;text-align:center}
+.hero h1{font-size:36px;margin:0 0 8px;font-weight:700;line-height:1.25}
+.hero h1 .gold{position:relative;background:linear-gradient(90deg,#C6F135,#7ED321);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .gold::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;border-radius:3px;background:linear-gradient(90deg,#38BDF8,#7ED321)}
+.hero p{margin:0 auto 20px;max-width:640px;color:#D9E8F9;font-size:17px}
+.hero-search{display:flex;max-width:560px;margin:0 auto;background:#fff;border-radius:999px;overflow:hidden;box-shadow:0 10px 30px rgba(10,37,64,.16);border:1px solid var(--line)}
+.hero-search input{flex:1;border:none;padding:14px 22px;font-size:16.5px;outline:none;font-family:inherit;color:var(--ink)}
+.hero-search button{background:linear-gradient(180deg,#8BE02E,#7ED321);color:#fff;border:none;padding:14px 28px;font-weight:700;font-size:16.5px;cursor:pointer;font-family:inherit}
+.hero-chips{margin-top:20px;display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.hero-chips a{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;padding:6px 16px;font-size:14.5px;font-weight:600}
+.hero-chips a:hover{background:rgba(255,255,255,.28);text-decoration:none}
+.cat-tiles{max-width:1200px;margin:0 auto;padding:2px 18px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:12px}
+.tile{border-radius:15px;padding:17px 10px 15px;text-align:center;color:#fff!important;font-weight:700;font-size:15.5px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);box-shadow:0 8px 20px rgba(0,0,0,.15);display:flex;flex-direction:column;gap:7px;align-items:center;transition:.18s;line-height:1.3}
+.tile:hover{transform:translateY(-3px);text-decoration:none;background:rgba(255,255,255,.24);border-color:var(--gold-light)}
+.tile span{font-size:27px}
+
+
+
+
+
+
+
+
+
+.trust-strip{margin:22px auto 0;max-width:760px;background:#ffffff;border:1.5px solid var(--gold);color:var(--green-dark);font-weight:700;border-radius:999px;padding:9px 18px;font-size:15px;box-shadow:0 4px 14px rgba(10,37,64,.10)}
+.hero-stats{margin-top:22px;display:flex;gap:34px;justify-content:center;flex-wrap:wrap;color:#CFE0F4;font-size:14.5px}
+.hero-stats b{display:block;font-size:21px;color:#fff}
+/* ============ Layout ============ */
+.wrap{max-width:1200px;margin:0 auto;padding:26px 18px 46px}
+.layout{display:flex;gap:26px;align-items:flex-start}
+.main-col{flex:1 1 auto;min-width:0}
+.side-col{flex:0 0 302px;width:302px}
+@media(max-width:920px){.layout{flex-direction:column}.side-col{flex:none;width:100%}}
+.side-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:17px 19px;margin-bottom:20px;box-shadow:var(--shadow)}
+.side-box h3{margin:0 0 11px;font-size:17.5px;color:var(--green-dark);border-bottom:2px solid var(--gold);padding-bottom:7px}
+.side-box ul{list-style:none;margin:0;padding:0}
+.side-box li{padding:6px 0;border-bottom:1px dashed var(--line)}
+.side-box li:last-child{border-bottom:none}
+.side-box p{margin:0 0 9px;font-size:15px;color:#37463d}
+/* ============ Cards ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:18px}
+@media(max-width:520px){.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:13px}}
+.card{background:var(--card);border:1.5px dashed #C9D9F2;border-radius:var(--radius);overflow:hidden;transition:.22s;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(10,37,64,.05);position:relative}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:#cfe3d2}
+.card .thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:#edf3ed;position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.card:hover .thumb img{transform:scale(1.06)}
+.free-badge{position:absolute;top:10px;left:10px;background:linear-gradient(180deg,#F97066,#F05555);color:#fff;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 11px;box-shadow:0 3px 8px rgba(0,0,0,.25);z-index:2}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card h2{font-size:16.5px;line-height:1.45;margin:0;font-weight:600}
+.card h2 a{color:var(--ink)}
+.card h2 a:hover{color:var(--green);text-decoration:none}
+.card .meta{font-size:13px;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-block;background:#E3ECFD;color:var(--green-dark);border:1px solid #c9e5d1;font-size:12.5px;font-weight:600;border-radius:999px;padding:2px 10px}
+.chip:hover{background:#D6E4FB;text-decoration:none}
+.card .go{margin-top:auto}
+.btn{display:inline-block;background:linear-gradient(180deg,#8BE02E,#7ED321);color:#fff!important;font-weight:700;border-radius:11px;padding:10px 20px;font-size:15px;text-align:center;box-shadow:0 4px 14px rgba(126,211,33,.40);transition:.18s;border:none;cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.08);text-decoration:none;transform:translateY(-1px)}
+.btn-block{display:block;width:100%}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#2a1e00!important;box-shadow:0 4px 14px rgba(212,160,23,.35)}
+/* ============ Single post ============ */
+.post-full{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;box-shadow:var(--shadow)}
+@media(max-width:640px){.post-full{padding:20px 17px}}
+.post-full h1{font-size:29px;line-height:1.35;margin:0 0 8px;color:var(--green-dark);font-weight:700}
+.post-meta{color:var(--muted);font-size:14px;margin-bottom:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.post-body{font-size:16.5px;color:#26322b}
+.post-body img{border-radius:12px;box-shadow:var(--shadow)}
+.dl-box{background:linear-gradient(180deg,#f2f9f3,#e7f3ea);border:1.5px dashed var(--green);border-radius:var(--radius);padding:24px 20px;text-align:center;margin:24px 0}
+.dl-box .btn{font-size:18.5px;padding:14px 38px;border-radius:13px}
+.dl-box .note{margin-top:11px;font-size:13.5px;color:var(--muted)}
+.spec{width:100%;border-collapse:collapse;margin:18px 0;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(10,37,64,.06)}
+.spec td{border-bottom:1px solid var(--line);padding:10px 14px;font-size:15px}
+.spec tr:last-child td{border-bottom:none}
+.spec td:first-child{font-weight:700;background:#f3f8f3;width:175px;color:var(--green-dark)}
+.share-row{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 4px;align-items:center}
+.share-row span{font-weight:700;color:var(--green-dark)}
+.share-btn{border-radius:999px;padding:7px 17px;font-weight:700;font-size:14.5px;color:#fff!important}
+.share-btn:hover{text-decoration:none;filter:brightness(1.1)}
+.sh-fb{background:#1877f2}.sh-wa{background:#25d366}.sh-tg{background:#229ed9}
+/* ============ Misc ============ */
+.pager{display:flex;justify-content:space-between;margin:28px 0 0;gap:10px}
+.status-msg{background:#fff7dd;border:1px solid var(--gold);border-radius:12px;padding:14px 18px;margin-bottom:18px}
+.ad-slot{margin:18px 0;text-align:center}
+.section-title{font-size:22px;color:var(--green-dark);margin:0 0 18px;border-left:5px solid var(--gold);padding-left:12px;font-weight:700}
+/* ============ Footer ============ */
+.site-footer{background:linear-gradient(180deg,#3B414E,#2F3540);color:#d8efe0;margin-top:6px}
+.footer-in{max-width:1200px;margin:0 auto;padding:38px 18px 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+@media(max-width:820px){.footer-in{grid-template-columns:1fr}}
+.site-footer h4{color:#fff;margin:0 0 12px;font-size:18px;border-bottom:2px solid var(--gold);display:inline-block;padding-bottom:5px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li{padding:4px 0}
+.site-footer a{color:#CFE0F4}
+.site-footer a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding:16px 18px;text-align:center;font-size:14.5px;color:#b9d6c2}
+.footer-bottom a{color:var(--gold-light);font-weight:600}
+
+.nav a svg{width:16px;height:16px;vertical-align:-3px;margin-right:5px}
+.tile .tic{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35)}
+.tile .tic svg{width:27px;height:27px}
+.trust-strip svg{width:16px;height:16px;vertical-align:-3px;color:var(--green)}
+.btn svg{width:17px;height:17px;vertical-align:-3px;margin-right:6px}
+.wa-float{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.28);z-index:70}
+.wa-float svg{width:28px;height:28px;color:#fff}
+.wa-float:hover{transform:scale(1.07)}
+.bottom-bar{display:none}
+@media(max-width:768px){
+.bottom-bar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(10,37,64,.10);z-index:65}
+.bottom-bar a{flex:1;text-align:center;padding:8px 0 7px;font-size:12.5px;font-weight:600;color:#5B6B7F}
+.bottom-bar a.on{color:var(--green)}
+.bottom-bar svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+body{padding-bottom:54px}
+.wa-float{bottom:70px}
+}
+
+.side-col{order:-1;flex:0 0 278px;width:278px}
+.main-col{flex:1;min-width:0}
+.side-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 14px;margin-bottom:18px;box-shadow:0 2px 10px rgba(10,37,64,.05)}
+.side-box h4{margin:0 0 10px;font-size:16.5px;color:var(--green-dark);border-bottom:2px solid #E3ECFD;padding-bottom:8px}
+.side-cats{list-style:none;margin:0;padding:0}
+.side-cats a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;color:var(--ink);font-weight:600;font-size:15px}
+.side-cats a:hover{background:#EDF3FC;color:var(--green);text-decoration:none}
+.side-cats svg{width:18px;height:18px;color:var(--green);flex:none}
+.app-box{background:linear-gradient(160deg,#0B3D2E,#0B6E4F);border-radius:14px;padding:16px 14px;margin-bottom:18px;color:#fff;box-shadow:0 8px 20px rgba(11,61,46,.25)}
+.app-box h4{margin:0 0 4px;font-size:16.5px;color:#fff;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:8px}
+.app-row{display:flex;gap:11px;align-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:11px;padding:10px 12px;margin-top:10px;color:#fff!important}
+.app-row:hover{background:rgba(255,255,255,.18);text-decoration:none}
+.app-row small{display:block;color:#CFE8D6;font-weight:400;font-size:12.5px}
+.app-row svg{width:22px;height:22px;color:#E9C767;flex:none}
+.side-col .widget{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 14px;margin-bottom:18px;box-shadow:0 2px 10px rgba(10,37,64,.05)}
+.side-col .widget h2{margin:0 0 10px;font-size:16.5px;color:var(--green-dark);border-bottom:2px solid #E3ECFD;padding-bottom:8px}
+.side-col .widget ul{list-style:none;margin:0;padding:0}
+.side-col .widget li{margin:2px 0}
+.side-col .widget li a{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:9px;color:var(--ink);font-weight:600;font-size:15px}
+.side-col .widget li a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);opacity:.5;flex:none}
+.side-col .widget li a:hover{background:#EDF3FC;color:var(--green);text-decoration:none}
+.filter-chips{display:flex;gap:9px;flex-wrap:wrap;padding:20px 0 2px}
+.fchip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid #D7E3F4;color:#2E3440;font-weight:600;font-size:14.5px;padding:7px 15px;border-radius:10px;box-shadow:0 2px 6px rgba(10,37,64,.05)}
+.fchip svg{width:16px;height:16px;color:var(--green)}
+.fchip:hover{border-color:var(--green);color:var(--green);text-decoration:none;transform:translateY(-1px)}
+.app-promo{margin:22px 0 6px;background:linear-gradient(120deg,#0B3D2E,#0B6E4F);border-radius:16px;padding:22px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;color:#fff;box-shadow:0 10px 26px rgba(11,61,46,.25)}
+.app-promo-txt{flex:1;min-width:240px}
+.app-promo h3{margin:6px 0 5px;font-size:21px;color:#fff}
+.app-promo p{margin:0;color:#D9F2E2;font-size:14.5px}
+.app-tag{background:#D4AF37;color:#2A1E00;font-weight:800;font-size:12px;padding:3px 11px;border-radius:999px;letter-spacing:.4px}
+.promo-btn{background:linear-gradient(180deg,#E9C767,#D4AF37);color:#2A1E00!important;font-weight:800;padding:12px 24px;border-radius:11px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.promo-btn svg{width:18px;height:18px}
+.promo-btn:hover{text-decoration:none;filter:brightness(1.06)}
+.shelf{margin-top:26px}
+.shelf-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.shelf-more{font-weight:700;font-size:14.5px;white-space:nowrap}
+.shelf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:18px;margin-top:6px}
+.shelf-card{background:#fff;border:1.5px dashed #C9D9F2;border-radius:16px;overflow:hidden;color:var(--ink);box-shadow:0 2px 10px rgba(10,37,64,.05)}
+.shelf-card:hover{text-decoration:none;transform:translateY(-3px);box-shadow:0 10px 22px rgba(10,37,64,.12)}
+.shelf-card img{width:100%;height:150px;object-fit:cover;display:block}
+.shelf-card span{display:block;padding:10px 12px;font-weight:600;font-size:14.5px;line-height:1.45}
+footer li svg{width:15px;height:15px;vertical-align:-2px;margin-right:6px}
+@media(max-width:900px){.side-col{order:2;flex:none;width:100%}}
+
+/* ===== v14 LIGHT THEME (MonJhie style) ===== */
+body{background:linear-gradient(180deg,#F2F9FE 0,#FBFDF4 420px,#F7FAFC 100%)}
+.hero{background:linear-gradient(180deg,#E8F5FD 0%,#F4FAFE 55%,#FDFDF3 100%);color:#22303E;overflow:hidden}
+.hero::before{display:none}
+.hero::after{display:none}
+.hero-wm{color:#1B9BD8;opacity:.06}
+.hero-in{position:relative;z-index:1}
+.hero .kicker{background:#fff;border:1px solid #CFE7F7;color:#1B7FB8;box-shadow:0 2px 8px rgba(27,155,216,.12)}
+.hero h1{color:#1B9BD8;text-shadow:none}
+.hero h1 .hl{background:#DCE625;color:#182530;padding:0 16px;border-radius:12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 .gold::after{display:none}
+.hero p{color:#4A5A6A}
+.search-big{background:#fff;box-shadow:0 10px 28px rgba(27,120,180,.16);border:1px solid #D9EDF9}
+.hchip{background:#fff;border:1.5px solid #D7E9F5;color:#33505F;box-shadow:0 2px 6px rgba(27,120,180,.08)}
+.hchip:hover{border-color:#1B9BD8;color:#1B7FB8}
+.hstat{background:rgba(255,255,255,.75);border:1px solid #D9EDF9}
+.hstat b{color:#14202B}
+.hstat span{color:#5A6D7E}
+.trust{background:#EAF6FD;color:#23405E;border-top:1px solid #D7E9F5;border-bottom:1px solid #D7E9F5}
+.nav-in a:first-child{background:#DCE625;color:#182530;border-radius:999px}
+.free-badge{background:#DCE625!important;color:#39430A!important}
+.filter-chips .fchip:first-child{background:#DCE625;border-color:#C6D41E;color:#26300A}
+footer{background:#EAF3FB;color:#41556B}
+footer h4{color:#1D63B8}
+footer a{color:#41556B}
+footer .foot-bottom{border-top-color:#CFE2F2;color:#6B7F93}
+
+/* ===== v15 BRAND FONTS ===== */
+h1,h2,h3,h4,.section-title,.side-box h4,.app-box h4,.shelf-head h2{font-family:'Baloo Da 2','Hind Siliguri',sans-serif}
+.hero h1{font-weight:800;letter-spacing:.2px}
+
+/* ===== v16 ORDER + NEW CATS ===== */
+.nav-order{background:#DCE625!important;color:#182530!important;border-radius:999px;font-weight:800}
+.order-banner{margin:26px 0 6px;background:linear-gradient(120deg,#FFF7C2,#DFF3FD);border:2px dashed #B9CC1B;border-radius:16px;padding:22px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.order-txt{flex:1;min-width:240px}
+.order-banner h3{margin:6px 0 5px;font-size:21px;color:#14202B}
+.order-banner p{margin:0;color:#41556B;font-size:14.5px}
+.order-btn{background:#22C064;color:#fff!important;font-weight:800;padding:12px 24px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 16px rgba(34,192,100,.35)}
+.order-btn svg{width:18px;height:18px}
+.order-btn:hover{text-decoration:none;filter:brightness(1.05)}
+.order-box{background:linear-gradient(160deg,#F5E93C,#DCE625);border-radius:14px;padding:16px 14px;margin-bottom:18px;color:#26300A;box-shadow:0 8px 20px rgba(190,205,20,.35)}
+.order-box h4{margin:0 0 6px;font-size:16.5px;color:#26300A}
+.order-box p{margin:0 0 12px;font-size:13.5px;color:#4A5210}
+.order-box-btn{display:inline-flex;align-items:center;gap:8px;background:#1280B4;color:#fff!important;font-weight:800;padding:9px 18px;border-radius:999px;font-size:14.5px}
+.order-box-btn svg{width:16px;height:16px}
+
+/* ===== v17 FIXES (live-verified selectors) ===== */
+.hero h1 .hl{background:#DCE625!important;color:#182530!important;-webkit-text-fill-color:#182530!important;-webkit-background-clip:border-box!important;background-clip:border-box!important}
+.main-nav a svg{width:16px!important;height:16px!important;flex:none}
+.hero-chips a{background:#fff!important;border:1.5px solid #D7E9F5!important;color:#33505F!important;box-shadow:0 2px 6px rgba(27,120,180,.08)}
+.hero-stats{color:#5A6D7E!important}
+.hero-stats b{color:#14202B!important}
+.site-footer{background:#EAF3FB!important;color:#41556B!important}
+.site-footer h4{color:#1D63B8!important}
+.site-footer a{color:#41556B!important}
+.footer-bottom{border-top-color:#CFE2F2!important;color:#6B7F93!important}
+.side-box p svg{width:16px;height:16px;vertical-align:-3px}
+.bbar a svg{width:21px;height:21px}
+]]></b:skin>
+</head>
+<body>
+<div class='top-strip'></div>
+<!-- ================= HEADER ================= -->
+<header class='site-header'>
+  <div class='header-in'>
+    <a class='brand' expr:href='data:blog.homepageUrl'>
+      <img alt='Tamaddun Hub' src='https://raw.githubusercontent.com/Talhahmaknun24/tamaddun-plp/main/logo-header.png'/>
+      <span>
+        <span class='bname'>Tamaddun Hub</span><br/>
+        <span class='btag'>Tamaddun Design-এর ফ্রি স্টক লাইব্রেরি</span>
+      </span>
+    </a>
+    <form class='header-search' expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get'>
+      <input name='q' placeholder='ডিজাইন, অ্যাপ, ফন্ট খুঁজুন…' type='text'/>
+      <button type='submit'>খুঁজুন</button>
+    </form>
+  </div>
+</header>
+<nav class='main-nav'>
+  <div class='nav-in'>
+    <a expr:href='data:blog.homepageUrl'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><path d='M9 22V12h6v10'/></svg> হোম</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ইসলামিক&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/></svg> মাহফিল ও ইসলামিক</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ক্যালেন্ডার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M16 2v4M8 2v4M3 10h18'/></svg> ক্যালেন্ডার ২০২৭</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/PLP&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z'/></svg> PLP ডিজাইন</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/সার্টিফিকেট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='8' r='6'/><path d='M15.5 13 17 22l-5-3-5 3 1.5-9'/></svg> সার্টিফিকেট</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ব্যানার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><path d='M21 15l-5-5L5 21'/></svg> ব্যানার</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/অ্যাপ&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='2' width='14' height='20' rx='2'/><path d='M12 18h.01'/></svg> অ্যাপ</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 7V4h16v3'/><path d='M9 20h6'/><path d='M12 4v16'/></svg> ফন্ট</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/টেমপ্লেট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M9 21V9'/></svg> টেমপ্লেট</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/রিসোর্স&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 8l-9-5-9 5v8l9 5 9-5z'/><path d='M3 8l9 5 9-5'/><path d='M12 13v8'/></svg> রিসোর্স</a>
+      <a expr:href='data:blog.homepageUrl + &quot;search/label/কার্ড&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='2'/><path d='M22 7l-10 6L2 7'/></svg> বিয়ে ও দাওয়াত কার্ড</a>
+      <a expr:href='data:blog.homepageUrl + &quot;search/label/প্রচ্ছদ&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z'/><path d='M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z'/></svg> বই ও ম্যাগাজিন প্রচ্ছদ</a>
+      <a expr:href='data:blog.homepageUrl + &quot;search/label/PSD&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2l9 5-9 5-9-5z'/><path d='M3 12l9 5 9-5'/><path d='M3 17l9 5 9-5'/></svg> PSD ফাইল</a>
+      <a expr:href='data:blog.homepageUrl + &quot;search/label/ডায়েরি&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg> ডায়েরি কভার</a>
+      <a expr:href='data:blog.homepageUrl + &quot;search/label/সফটওয়্যার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2'/><path d='M8 21h8M12 17v4'/></svg> PC সফটওয়্যার</a>
+      <a expr:href='data:blog.homepageUrl + &quot;search/label/টিউটোরিয়াল&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M10 8l6 4-6 4z'/></svg> টিউটোরিয়াল</a>
+      <a href='https://wa.me/8801933988628' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 2L11 13'/><path d='M22 2l-7 20-4-9-9-4z'/></svg> রিকোয়েস্ট</a>
+      <a class='nav-order' href='https://wa.me/8801933988628?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%8F%E0%A6%95%E0%A6%9F%E0%A6%BF%20%E0%A6%A1%E0%A6%BF%E0%A6%9C%E0%A6%BE%E0%A6%87%E0%A6%A8%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z'/></svg> ডিজাইন অর্ডার</a>
+  </div>
+</nav>
+<!-- ================= HERO (home only) ================= -->
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+  <section class='hero'>
+    <div class='hero-in'>
+      <h1>ফ্রি <span class='hl'>PLP ডিজাইন</span>, অ্যাপ ও রিসোর্সের<br/>সবচেয়ে বড় বাংলা স্টক</h1>
+      <p>সার্টিফিকেট, ব্যানার, পোস্টার, ক্যালেন্ডারসহ শত শত এডিটেবল PLP ডিজাইন, অ্যান্ড্রয়েড অ্যাপ, ফন্ট আর টেমপ্লেট — সব একদম ফ্রি, এক ক্লিকে ডাউনলোড।</p>
+      <form class='hero-search' expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get'>
+        <input name='q' placeholder='কী খুঁজছেন? যেমন: সার্টিফিকেট ডিজাইন…' type='text'/>
+        <button type='submit'>🔍 খুঁজুন</button>
+      </form>
+      <div class='hero-chips'>
+        <a expr:href='data:blog.homepageUrl + &quot;search/label/সার্টিফিকেট&quot;'>সার্টিফিকেট PLP</a>
+        <a expr:href='data:blog.homepageUrl + &quot;search/label/ব্যানার&quot;'>ব্যানার ডিজাইন</a>
+        <a expr:href='data:blog.homepageUrl + &quot;search/label/ক্যালেন্ডার&quot;'>২০২৭ ক্যালেন্ডার</a>
+        <a expr:href='data:blog.homepageUrl + &quot;search/label/অ্যাপ&quot;'>অ্যান্ড্রয়েড অ্যাপ</a>
+        <a expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'>বাংলা ফন্ট</a>
+      </div>
+      <div class='trust-strip'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg> সব ফাইল ১০০% ফ্রি &#160;•&#160; <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0 1 9.9-1'/></svg> পাসওয়ার্ড নেই &#160;•&#160; <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/><path d='M9 15l2 2 4-4'/></svg> রেজিস্ট্রেশন নেই &#160;•&#160; <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><path d='M7 10l5 5 5-5'/><path d='M12 15V3'/></svg> এক ক্লিকে সরাসরি ডাউনলোড</div>
+      <div class='hero-stats'>
+        <div><b>100%</b>সম্পূর্ণ ফ্রি</div>
+        <div><b>এডিটেবল</b>সব PLP ফাইল</div>
+        <div><b>সরাসরি</b>ডাউনলোড লিংক</div>
+      </div>
+    </div>
+  </section>
+</b:if>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+  <div class='wrap'><div class='filter-chips' id='chips'><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/ইসলামিক&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/></svg> মাহফিল ও ইসলামিক</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/ক্যালেন্ডার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M16 2v4M8 2v4M3 10h18'/></svg> ক্যালেন্ডার ২০২৭</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/PLP&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z'/></svg> PLP ডিজাইন</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/সার্টিফিকেট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='8' r='6'/><path d='M15.5 13 17 22l-5-3-5 3 1.5-9'/></svg> সার্টিফিকেট</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/ব্যানার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><path d='M21 15l-5-5L5 21'/></svg> ব্যানার</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/অ্যাপ&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='2' width='14' height='20' rx='2'/><path d='M12 18h.01'/></svg> অ্যাপ</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 7V4h16v3'/><path d='M9 20h6'/><path d='M12 4v16'/></svg> ফন্ট</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/টেমপ্লেট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M9 21V9'/></svg> টেমপ্লেট</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/রিসোর্স&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 8l-9-5-9 5v8l9 5 9-5z'/><path d='M3 8l9 5 9-5'/><path d='M12 13v8'/></svg> রিসোর্স</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/PSD&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2l9 5-9 5-9-5z'/><path d='M3 12l9 5 9-5'/><path d='M3 17l9 5 9-5'/></svg> PSD ফাইল</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/প্রশ্ন&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6M9 13h6M9 17h6'/></svg> মাদ্রাসা প্রশ্ন</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/রেজাল্ট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M3 15h18M9 3v18M15 3v18'/></svg> রেজাল্ট শীট</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/ডায়েরি&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg> ডায়েরি কভার</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/সফটওয়্যার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2'/><path d='M8 21h8M12 17v4'/></svg> PC সফটওয়্যার</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/কার্ড&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='2'/><path d='M22 7l-10 6L2 7'/></svg> বিয়ে ও দাওয়াত কার্ড</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/ভিজিটিং&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='2'/><circle cx='8' cy='11' r='2.2'/><path d='M5.5 17c.6-1.4 1.4-2 2.5-2s1.9.6 2.5 2M14 9h5M14 13h5'/></svg> ভিজিটিং কার্ড</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/আইডি&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='2' width='14' height='20' rx='2'/><circle cx='12' cy='9' r='2.4'/><path d='M8.5 17c.7-1.8 1.9-2.6 3.5-2.6s2.8.8 3.5 2.6'/></svg> আইডি কার্ড</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/লিফলেট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6M9 13h6M9 17h6'/></svg> লিফলেট ও হ্যান্ডবিল</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/প্রচ্ছদ&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z'/><path d='M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z'/></svg> বই ও ম্যাগাজিন প্রচ্ছদ</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/প্যাকেজিং&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'/><path d='M3 6h18'/><path d='M16 10a4 4 0 0 1-8 0'/></svg> প্যাকেজিং ও লেবেল</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/সাইনবোর্ড&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z'/><path d='M4 22v-7'/></svg> সাইনবোর্ড ও ফেস্টুন</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/স্টিকার&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21 7 14.2 2 9.3l6.9-1z'/></svg> স্টিকার</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/টি-শার্ট&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.4 3.6L16 2a4 4 0 0 1-8 0L3.6 3.6a2 2 0 0 0-1.3 2.3L3.5 10 7 9v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9l3.5 1 1.2-4.1a2 2 0 0 0-1.3-2.3z'/></svg> টি-শার্ট ডিজাইন</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/রশিদ&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 2h14v20l-2.3-1.6L14.4 22l-2.4-1.6L9.6 22 7.3 20.4 5 22z'/><path d='M9 7h6M9 11h6'/></svg> রশিদ ও চালান</a><a class='fchip' expr:href='data:blog.homepageUrl + &quot;search/label/মেনু&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M8 6h13M8 12h13M8 18h13'/><path d='M3.5 6h.01M3.5 12h.01M3.5 18h.01'/></svg> মেনু কার্ড</a></div><div class='app-promo'><div class='app-promo-txt'><span class='app-tag'>আমাদের অ্যাপ</span><h3>Tamaddun Keyboard — ফ্রি বাংলা কিবোর্ড</h3><p>Android ও Windows-এর জন্য ফনেটিক ও প্রভাত লেআউটের সম্পূর্ণ ফ্রি বাংলা কিবোর্ড — এই সাইটের ডিজাইনগুলো টাইপ করুন নিজের ভাষায়।</p></div><a class='promo-btn' href='https://talhahmaknun24.github.io/tamaddun-keyboard/' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><path d='M7 10l5 5 5-5'/><path d='M12 15V3'/></svg> ফ্রি ডাউনলোড</a></div><section class='shelf' data-shelf='ইসলামিক' style='display:none'><div class='shelf-head'><h2 class='section-title'>মাহফিল ও ইসলামিক ডিজাইন</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/ইসলামিক&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='ক্যালেন্ডার' style='display:none'><div class='shelf-head'><h2 class='section-title'>ক্যালেন্ডার ২০২৭</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/ক্যালেন্ডার&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='ফন্ট' style='display:none'><div class='shelf-head'><h2 class='section-title'>বাংলা ফন্ট কালেকশন</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='PSD' style='display:none'><div class='shelf-head'><h2 class='section-title'>PSD ডিজাইন ফাইল</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/PSD&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='প্রশ্ন' style='display:none'><div class='shelf-head'><h2 class='section-title'>মাদ্রাসা প্রশ্ন টেমপ্লেট</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/প্রশ্ন&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='রেজাল্ট' style='display:none'><div class='shelf-head'><h2 class='section-title'>রেজাল্ট শীট (Excel)</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/রেজাল্ট&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='ডায়েরি' style='display:none'><div class='shelf-head'><h2 class='section-title'>ডায়েরি কভার ডিজাইন</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/ডায়েরি&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='কার্ড' style='display:none'><div class='shelf-head'><h2 class='section-title'>বিয়ে ও দাওয়াত কার্ড</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/কার্ড&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='প্রচ্ছদ' style='display:none'><div class='shelf-head'><h2 class='section-title'>বই ও ম্যাগাজিন প্রচ্ছদ</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/প্রচ্ছদ&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><section class='shelf' data-shelf='প্যাকেজিং' style='display:none'><div class='shelf-head'><h2 class='section-title'>প্যাকেজিং ও লেবেল</h2><a class='shelf-more' expr:href='data:blog.homepageUrl + &quot;search/label/প্যাকেজিং&quot;'>সব দেখুন →</a></div><div class='shelf-grid'></div></section><div class='order-banner'><div class='order-txt'><span class='app-tag'>কাস্টম সার্ভিস</span><h3>যেকোনো ডিজাইনের অর্ডার করুন</h3><p>মাহফিল পোস্টার, ব্যানার, লোগো, সার্টিফিকেট, ডায়েরি কভার — আপনার পছন্দমতো ডিজাইন বানিয়ে নিন Tamaddun Design থেকে।</p></div><a class='order-btn' href='https://wa.me/8801933988628?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%8F%E0%A6%95%E0%A6%9F%E0%A6%BF%20%E0%A6%A1%E0%A6%BF%E0%A6%9C%E0%A6%BE%E0%A6%87%E0%A6%A8%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 2L11 13'/><path d='M22 2l-7 20-4-9-9-4z'/></svg> WhatsApp-এ অর্ডার করুন</a></div></div>
+</b:if>
+<div class='wrap'>
+  <div class='ad-slot'><!-- MONETAG_TOP_SLOT --></div>
+  <div class='layout'>
+    <main class='main-col'>
+      <b:section id='main' showaddelement='yes'>
+        <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+          <b:widget-settings>
+            <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <b:if cond='data:blog.pageType == &quot;index&quot; or data:blog.pageType == &quot;archive&quot;'>
+              <b:if cond='data:blog.searchLabel'>
+                <h2 class='section-title'>ক্যাটাগরি: <data:blog.searchLabel/></h2>
+              <b:elseif cond='data:blog.searchQuery'/>
+                <h2 class='section-title'>খোঁজার ফলাফল: &#8220;<data:blog.searchQuery/>&#8221;</h2>
+              <b:else/>
+                <h2 class='section-title'>সর্বশেষ আপলোডসমূহ</h2>
+              </b:if>
+            </b:if>
+            <b:if cond='data:blog.pageType == &quot;index&quot; or data:blog.pageType == &quot;archive&quot;'>
+              <div class='grid'>
+                <b:loop values='data:posts' var='post'>
+                  <b:include data='post' name='post-card'/>
+                </b:loop>
+              </div>
+            <b:else/>
+              <b:loop values='data:posts' var='post'>
+                <b:include data='post' name='post'/>
+              </b:loop>
+            </b:if>
+            <b:include name='nextprev'/>
+          </b:includable>
+          <b:includable id='post-card' var='post'>
+            <article class='card'>
+              <a class='thumb' expr:href='data:post.url'>
+                <span class='free-badge'>⭐ ফ্রি</span>
+                <b:if cond='data:post.firstImageUrl'>
+                  <img expr:alt='data:post.title' expr:src='data:post.firstImageUrl'/>
+                <b:else/>
+                  <img alt='' src='https://via.placeholder.com/640x480?text=Tamaddun+Hub'/>
+                </b:if>
+              </a>
+              <div class='card-body'>
+                <h2><a expr:href='data:post.url'><data:post.title/></a></h2>
+                <div class='meta'><data:post.dateHeader/></div>
+                <div class='chips'>
+                  <b:loop values='data:post.labels' var='label'>
+                    <a class='chip' expr:href='data:label.url'><data:label.name/></a>
+                  </b:loop>
+                </div>
+                <div class='go'><a class='btn btn-block' expr:href='data:post.url'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><path d='M7 10l5 5 5-5'/><path d='M12 15V3'/></svg> ডাউনলোড / বিস্তারিত</a></div>
+              </div>
+            </article>
+          </b:includable>
+          <b:includable id='post' var='post'>
+            <article class='post-full'>
+              <h1><data:post.title/></h1>
+              <div class='post-meta'>
+                <span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M16 2v4M8 2v4M3 10h18'/></svg> <data:post.dateHeader/></span>
+                <span class='chips'>
+                  <b:loop values='data:post.labels' var='label'>
+                    <a class='chip' expr:href='data:label.url'><data:label.name/></a>
+                  </b:loop>
+                </span>
+              </div>
+              <div class='ad-slot'><!-- MONETAG_POST_TOP_SLOT --></div>
+              <div class='post-body'>
+                <data:post.body/>
+              </div>
+              <div class='app-promo'><div class='app-promo-txt'><span class='app-tag'>আমাদের অ্যাপ</span><h3>Tamaddun Keyboard — ফ্রি বাংলা কিবোর্ড</h3><p>Android ও Windows-এর জন্য ফনেটিক ও প্রভাত লেআউটের সম্পূর্ণ ফ্রি বাংলা কিবোর্ড — এই সাইটের ডিজাইনগুলো টাইপ করুন নিজের ভাষায়।</p></div><a class='promo-btn' href='https://talhahmaknun24.github.io/tamaddun-keyboard/' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><path d='M7 10l5 5 5-5'/><path d='M12 15V3'/></svg> ফ্রি ডাউনলোড</a></div>
+              <div class='share-row'>
+                <span>শেয়ার করুন:</span>
+                <a class='share-btn sh-fb' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' target='_blank'>Facebook</a>
+                <a class='share-btn sh-wa' expr:href='&quot;https://wa.me/?text=&quot; + data:post.title + &quot; — &quot; + data:post.url' target='_blank'>WhatsApp</a>
+                <a class='share-btn sh-tg' expr:href='&quot;https://t.me/share/url?url=&quot; + data:post.url' target='_blank'>Telegram</a>
+              </div>
+              <div class='ad-slot'><!-- MONETAG_POST_BOTTOM_SLOT --></div>
+            </article>
+          </b:includable>
+          <b:includable id='status-message'>
+            <b:if cond='data:navMessage'>
+              <div class='status-msg'><data:navMessage/></div>
+            </b:if>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </main>
+    <aside class='side-col'>
+    <div class='side-box'><h4>সাপোর্ট</h4><ul class='side-cats'>
+      <li><a expr:href='data:blog.homepageUrl + &quot;search?q=কীভাবে&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01'/></svg> কীভাবে PLP ওপেন করবেন</a></li>
+      <li><a href='https://wa.me/8801933988628' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/><path d='M7 10l5 5 5-5'/><path d='M12 15V3'/></svg> ডাউনলোডে সমস্যা হলে</a></li>
+      <li><a href='https://wa.me/8801933988628' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 2L11 13'/><path d='M22 2l-7 20-4-9-9-4z'/></svg> ফাইল রিকোয়েস্ট করুন</a></li>
+    </ul></div>
+    <div class='app-box'><h4>আমাদের অ্যাপসমূহ</h4>
+      <a class='app-row' href='https://talhahmaknun24.github.io/tamaddun-keyboard/' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='6' width='20' height='12' rx='2'/><path d='M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M18 14h.01M9 14h6'/></svg><span><b>Tamaddun Keyboard</b><small>ফ্রি বাংলা কিবোর্ড — Android ও PC</small></span></a>
+      <a class='app-row' href='https://wa.me/8801933988628' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z'/></svg><span><b>TamaddunLab</b><small>PixelLab-এর প্রিমিয়াম মোড সংস্করণ</small></span></a>
+    </div>
+    <div class='order-box'><h4>ডিজাইন অর্ডার</h4><p>পছন্দমতো যেকোনো ডিজাইন বানিয়ে নিন — মাহফিল পোস্টার, লোগো, ব্যানার, ডায়েরি কভার।</p><a class='order-box-btn' href='https://wa.me/8801933988628?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%8F%E0%A6%95%E0%A6%9F%E0%A6%BF%20%E0%A6%A1%E0%A6%BF%E0%A6%9C%E0%A6%BE%E0%A6%87%E0%A6%A8%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 2L11 13'/><path d='M22 2l-7 20-4-9-9-4z'/></svg> অর্ডার করুন</a></div>
+    
+      <b:section id='sidebar' showaddelement='yes'>
+        <b:widget id='Label1' locked='false' title='ক্যাটাগরি' type='Label'>
+          <b:widget-settings>
+            <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+            <b:widget-setting name='display'>LIST</b:widget-setting>
+            <b:widget-setting name='selectedLabelsList'/>
+            <b:widget-setting name='showType'>ALL</b:widget-setting>
+            <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <div class='side-box'>
+              <h3>📂 ক্যাটাগরি</h3>
+              <ul>
+                <b:loop values='data:labels' var='label'>
+                  <li><a expr:href='data:label.url'><data:label.name/></a> (<data:label.count/>)</li>
+                </b:loop>
+              </ul>
+            </div>
+          </b:includable>
+        </b:widget>
+        <b:widget id='PopularPosts1' locked='false' title='জনপ্রিয়' type='PopularPosts'>
+          <b:widget-settings>
+            <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+            <b:widget-setting name='showSnippets'>false</b:widget-setting>
+            <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+            <b:widget-setting name='timeRange'>LAST_MONTH</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <div class='side-box'>
+              <h3>🔥 জনপ্রিয় ডাউনলোড</h3>
+              <ul>
+                <b:loop values='data:posts' var='post'>
+                  <li><a expr:href='data:post.url'><data:post.title/></a></li>
+                </b:loop>
+              </ul>
+            </div>
+          </b:includable>
+        </b:widget>
+        <b:widget id='HTML1' locked='false' title='আমাদের সম্পর্কে' type='HTML'>
+          <b:includable id='main'>
+            <div class='side-box'>
+              <h3>ℹ️ আমাদের সম্পর্কে</h3>
+              <p>Tamaddun Hub — Tamaddun Design-এর ফ্রি স্টক লাইব্রেরি। এডিটেবল PLP ডিজাইন, অ্যান্ড্রয়েড অ্যাপ, ফন্ট, টেমপ্লেট ও ডিজাইন রিসোর্স — সব ফ্রি।</p>
+              <p><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='2' width='14' height='20' rx='2'/><path d='M12 18h.01'/></svg> WhatsApp: <a href='https://wa.me/8801933988628'>+8801933988628</a><br/>📧 md.talhahmaknun24@gmail.com</p>
+            </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
+      <div class='ad-slot'><!-- MONETAG_SIDEBAR_SLOT --></div>
+    </aside>
+  </div>
+</div>
+<!-- ================= FOOTER ================= -->
+<footer class='site-footer'>
+  <div class='footer-in'>
+    <div>
+      <h4>Tamaddun Hub</h4>
+      <p style='margin:0;font-size:15px'>Tamaddun Design-এর ফ্রি স্টক লাইব্রেরি — PLP ডিজাইন, অ্যাপ, ফন্ট, টেমপ্লেট ও রিসোর্স। সব ডিজাইন সম্পূর্ণ এডিটেবল ও ফ্রি।</p>
+    </div>
+    <div>
+      <h4>ক্যাটাগরি</h4>
+      <ul>
+        <li><a href='/search/label/PLP'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z'/></svg> PLP ডিজাইন</a></li>
+        <li><a href='/search/label/অ্যাপ'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='2' width='14' height='20' rx='2'/><path d='M12 18h.01'/></svg> অ্যাপ</a></li>
+        <li><a href='/search/label/ফন্ট'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 7V4h16v3'/><path d='M9 20h6'/><path d='M12 4v16'/></svg> ফন্ট</a></li>
+        <li><a href='/search/label/টেমপ্লেট'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M9 21V9'/></svg> টেমপ্লেট</a></li>
+        <li><a href='/search/label/রিসোর্স'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 8l-9-5-9 5v8l9 5 9-5z'/><path d='M3 8l9 5 9-5'/><path d='M12 13v8'/></svg> রিসোর্স</a></li>
+        <li><a href='/search/label/PSD'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2l9 5-9 5-9-5z'/><path d='M3 12l9 5 9-5'/><path d='M3 17l9 5 9-5'/></svg> PSD ফাইল</a></li>
+        <li><a href='/search/label/প্রশ্ন'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6M9 13h6M9 17h6'/></svg> মাদ্রাসা প্রশ্ন</a></li>
+        <li><a href='/search/label/রেজাল্ট'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M3 15h18M9 3v18M15 3v18'/></svg> রেজাল্ট শীট</a></li>
+        <li><a href='/search/label/ডায়েরি'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg> ডায়েরি কভার</a></li>
+        <li><a href='/search/label/সফটওয়্যার'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2'/><path d='M8 21h8M12 17v4'/></svg> PC সফটওয়্যার</a></li>
+        <li><a href='/search/label/কার্ড'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='2'/><path d='M22 7l-10 6L2 7'/></svg> বিয়ে ও দাওয়াত কার্ড</a></li>
+        <li><a href='/search/label/ভিজিটিং'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='2'/><circle cx='8' cy='11' r='2.2'/><path d='M5.5 17c.6-1.4 1.4-2 2.5-2s1.9.6 2.5 2M14 9h5M14 13h5'/></svg> ভিজিটিং কার্ড</a></li>
+        <li><a href='/search/label/আইডি'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='2' width='14' height='20' rx='2'/><circle cx='12' cy='9' r='2.4'/><path d='M8.5 17c.7-1.8 1.9-2.6 3.5-2.6s2.8.8 3.5 2.6'/></svg> আইডি কার্ড</a></li>
+        <li><a href='/search/label/লিফলেট'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6M9 13h6M9 17h6'/></svg> লিফলেট ও হ্যান্ডবিল</a></li>
+        <li><a href='/search/label/প্রচ্ছদ'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z'/><path d='M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z'/></svg> বই ও ম্যাগাজিন প্রচ্ছদ</a></li>
+        <li><a href='/search/label/প্যাকেজিং'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'/><path d='M3 6h18'/><path d='M16 10a4 4 0 0 1-8 0'/></svg> প্যাকেজিং ও লেবেল</a></li>
+        <li><a href='/search/label/সাইনবোর্ড'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z'/><path d='M4 22v-7'/></svg> সাইনবোর্ড ও ফেস্টুন</a></li>
+        <li><a href='/search/label/স্টিকার'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21 7 14.2 2 9.3l6.9-1z'/></svg> স্টিকার</a></li>
+        <li><a href='/search/label/টি-শার্ট'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.4 3.6L16 2a4 4 0 0 1-8 0L3.6 3.6a2 2 0 0 0-1.3 2.3L3.5 10 7 9v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9l3.5 1 1.2-4.1a2 2 0 0 0-1.3-2.3z'/></svg> টি-শার্ট ডিজাইন</a></li>
+        <li><a href='/search/label/রশিদ'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 2h14v20l-2.3-1.6L14.4 22l-2.4-1.6L9.6 22 7.3 20.4 5 22z'/><path d='M9 7h6M9 11h6'/></svg> রশিদ ও চালান</a></li>
+        <li><a href='/search/label/মেনু'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M8 6h13M8 12h13M8 18h13'/><path d='M3.5 6h.01M3.5 12h.01M3.5 18h.01'/></svg> মেনু কার্ড</a></li>
+      </ul>
+    </div>
+        <div class='foot-col'><h4>আমাদের অ্যাপ</h4><ul><li><a href='https://talhahmaknun24.github.io/tamaddun-keyboard/' target='_blank' rel='noopener'>Tamaddun Keyboard</a></li><li><a href='https://wa.me/8801933988628' target='_blank' rel='noopener'>TamaddunLab</a></li><li><a href='https://talhahmaknun24.github.io/' target='_blank' rel='noopener'>সব ডাউনলোড</a></li></ul></div>
+    <div>
+      <h4>যোগাযোগ</h4>
+      <ul>
+        <li><a href='https://www.facebook.com/Talhahmaknun'>Facebook পেজ</a></li>
+        <li><a href='https://wa.me/8801933988628'>WhatsApp</a></li>
+        <li><a href='https://talhahmaknun24.github.io'>Tamaddun Keyboard</a></li>
+        <li><a href='https://github.com/Talhahmaknun24'>GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class='footer-bottom'>© Tamaddun Design — সকল স্বত্ব সংরক্ষিত। · ডিজাইন ও ডেভেলপমেন্ট: <a href='https://talhahmaknun24.github.io'>Talhah Maknun</a></div>
+</footer>
+<a class='wa-float' href='https://wa.me/8801933988628' target='_blank' rel='noopener' aria-label='WhatsApp-এ মেসেজ করুন'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg></a>
+<nav class='bottom-bar'>
+  <a class='on' expr:href='data:blog.homepageUrl'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><path d='M9 22V12h6v10'/></svg>হোম</a>
+  <a href='#cats'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='7' height='7' rx='1'/><rect x='14' y='3' width='7' height='7' rx='1'/><rect x='14' y='14' width='7' height='7' rx='1'/><rect x='3' y='14' width='7' height='7' rx='1'/></svg>ক্যাটাগরি</a>
+  <a expr:href='data:blog.homepageUrl + &quot;search&quot;'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M21 21l-4.5-4.5'/></svg>খুঁজুন</a>
+  <a href='https://wa.me/8801933988628' target='_blank' rel='noopener'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>WhatsApp</a>
+</nav>
+<script type='text/javascript'>//<![CDATA[
+document.querySelectorAll('.shelf').forEach(function(sec){
+  var label = sec.getAttribute('data-shelf');
+  fetch('/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json&max-results=4')
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      var e = (j.feed && j.feed.entry) || [];
+      if(!e.length) return;
+      var g = sec.querySelector('.shelf-grid');
+      e.forEach(function(en){
+        var link = '';
+        (en.link || []).forEach(function(l){ if(l.rel === 'alternate') link = l.href; });
+        var img = en['media$thumbnail'] ? en['media$thumbnail'].url.replace('/s72-c/', '/s300-c/') : '';
+        var a = document.createElement('a');
+        a.className = 'shelf-card'; a.href = link;
+        a.innerHTML = (img ? '<img src="' + img + '" alt=""/>' : '') + '<span>' + en.title.$t + '</span>';
+        g.appendChild(a);
+      });
+      sec.style.display = '';
+    })
+    .catch(function(){});
+});
+//]]></script>
+</body>
+</html>
