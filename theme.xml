@@ -198,7 +198,7 @@ img{max-width:100%;height:auto}
         <a expr:href='data:blog.homepageUrl + &quot;search/label/অ্যাপ&quot;'>অ্যান্ড্রয়েড অ্যাপ</a>
         <a expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'>বাংলা ফন্ট</a>
       </div>
-      <div class='trust-strip'>✅ সব ফাইল ১০০% ফ্রি &nbsp;•&nbsp; 🔓 পাসওয়ার্ড নেই &nbsp;•&nbsp; 📝 রেজিস্ট্রেশন নেই &nbsp;•&nbsp; ⬇ এক ক্লিকে সরাসরি ডাউনলোড</div>
+      <div class='trust-strip'>✅ সব ফাইল ১০০% ফ্রি &#160;•&#160; 🔓 পাসওয়ার্ড নেই &#160;•&#160; 📝 রেজিস্ট্রেশন নেই &#160;•&#160; ⬇ এক ক্লিকে সরাসরি ডাউনলোড</div>
       <div class='hero-stats'>
         <div><b>100%</b>সম্পূর্ণ ফ্রি</div>
         <div><b>এডিটেবল</b>সব PLP ফাইল</div>
@@ -231,7 +231,7 @@ img{max-width:100%;height:auto}
             <b:if cond='data:blog.pageType == &quot;index&quot; or data:blog.pageType == &quot;archive&quot;'>
               <b:if cond='data:blog.searchLabel'>
                 <h2 class='section-title'>ক্যাটাগরি: <data:blog.searchLabel/></h2>
-              <b:elseif cond='data:blog.searchQuery'>
+              <b:elseif cond='data:blog.searchQuery'/>
                 <h2 class='section-title'>খোঁজার ফলাফল: &#8220;<data:blog.searchQuery/>&#8221;</h2>
               <b:else/>
                 <h2 class='section-title'>সর্বশেষ আপলোডসমূহ</h2>
