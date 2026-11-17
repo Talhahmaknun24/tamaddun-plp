@@ -57,6 +57,7 @@ img{max-width:100%;height:auto}
 .hero-chips{margin-top:20px;display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
 .hero-chips a{background:#ffffff;border:1px solid #cfe0d2;color:var(--green-dark);border-radius:999px;padding:6px 16px;font-size:14.5px;font-weight:600;box-shadow:0 2px 8px rgba(6,63,34,.08)}
 .hero-chips a:hover{background:#e8f4ec;text-decoration:none}
+.trust-strip{margin:22px auto 0;max-width:760px;background:#ffffff;border:1.5px solid var(--gold);color:var(--green-dark);font-weight:700;border-radius:999px;padding:9px 18px;font-size:15px;box-shadow:0 4px 14px rgba(6,63,34,.10)}
 .hero-stats{margin-top:22px;display:flex;gap:34px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-size:14.5px}
 .hero-stats b{display:block;font-size:21px;color:var(--green-dark)}
 /* ============ Layout ============ */
@@ -150,14 +151,14 @@ img{max-width:100%;height:auto}
 <nav class='main-nav'>
   <div class='nav-in'>
     <a expr:href='data:blog.homepageUrl'>🏠 হোম</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ইসলামিক&quot;'>☪️ মাহফিল ও ইসলামিক</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ক্যালেন্ডার&quot;'>📅 ক্যালেন্ডার ২০২৭</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/PLP&quot;'>🎨 PLP ডিজাইন</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/সার্টিফিকেট&quot;'>সার্টিফিকেট</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/ব্যানার&quot;'>ব্যানার</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/অ্যাপ&quot;'>📱 অ্যাপ</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'>🔤 ফন্ট</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/টেমপ্লেট&quot;'>🖼️ টেমপ্লেট</a>
-    <a expr:href='data:blog.homepageUrl + &quot;search/label/সার্টিফিকেট&quot;'>সার্টিফিকেট</a>
-    <a expr:href='data:blog.homepageUrl + &quot;search/label/ব্যানার&quot;'>ব্যানার</a>
-    <a expr:href='data:blog.homepageUrl + &quot;search/label/ক্যালেন্ডার&quot;'>ক্যালেন্ডার</a>
-    <a expr:href='data:blog.homepageUrl + &quot;search/label/ইসলামিক&quot;'>ইসলামিক</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/রিসোর্স&quot;'>📦 রিসোর্স</a>
   </div>
 </nav>
@@ -178,6 +179,7 @@ img{max-width:100%;height:auto}
         <a expr:href='data:blog.homepageUrl + &quot;search/label/অ্যাপ&quot;'>অ্যান্ড্রয়েড অ্যাপ</a>
         <a expr:href='data:blog.homepageUrl + &quot;search/label/ফন্ট&quot;'>বাংলা ফন্ট</a>
       </div>
+      <div class='trust-strip'>✅ সব ফাইল ১০০% ফ্রি &nbsp;•&nbsp; 🔓 পাসওয়ার্ড নেই &nbsp;•&nbsp; 📝 রেজিস্ট্রেশন নেই &nbsp;•&nbsp; ⬇ এক ক্লিকে সরাসরি ডাউনলোড</div>
       <div class='hero-stats'>
         <div><b>100%</b>সম্পূর্ণ ফ্রি</div>
         <div><b>এডিটেবল</b>সব PLP ফাইল</div>
