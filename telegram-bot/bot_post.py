@@ -117,6 +117,55 @@ def post_entry(cfg, entry):
     return res.get("ok", False), res
 
 
+# Telegram lets a bot set only ONE reaction per message (two => REACTIONS_TOO_MANY).
+REACTION = "❤️"
+
+
+def react_to(cfg, chat_id, message_id):
+    """Add the auto-reaction to one channel post. Never raises."""
+    try:
+        res = tg_call(cfg["bot_token"], "setMessageReaction",
+                      {"chat_id": chat_id, "message_id": message_id,
+                       "reaction": [{"type": "emoji", "emoji": REACTION}]})
+        log(f"reacted {REACTION} to msg {message_id}: ok={res.get('ok')}")
+        return bool(res.get("ok"))
+    except Exception as e:
+        log(f"react failed for msg {message_id}: {e}")
+        return False
+
+
+def react_to_new_channel_posts(cfg, state):
+    """Poll getUpdates for channel posts made by hand (the bot never gets
+    updates for its own sent messages, so those are reacted to right after
+    sending instead). Reacts once per post; offset + reacted ids persist in
+    state.json so a rerun never double-reacts (setting the same reaction
+    again would be a no-op anyway)."""
+    try:
+        offset = state.get("update_offset", 0)
+        res = tg_call(cfg["bot_token"], "getUpdates",
+                      {"offset": offset, "timeout": 0})
+        if not res.get("ok"):
+            log(f"getUpdates failed: {res}")
+            return
+        reacted = set(state.get("reacted", []))
+        max_id = offset
+        for u in res.get("result", []):
+            max_id = max(max_id, u.get("update_id", 0) + 1)
+            post = u.get("channel_post")
+            if not post:
+                continue
+            mid = post.get("message_id")
+            if not mid or mid in reacted:
+                continue
+            if react_to(cfg, post.get("chat", {}).get("id"), mid):
+                reacted.add(mid)
+        state["update_offset"] = max_id
+        state["reacted"] = sorted(reacted)
+        save_state(state)
+    except Exception as e:
+        log(f"react poll failed (posts unaffected): {e}")
+
+
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else "run"
     cfg = load_config()
@@ -130,6 +179,11 @@ def main():
                       {"chat_id": cfg["channel"],
                        "text": "✅ Tamaddun Hub অটো-পোস্ট চালু হলো! এখন থেকে সাইটে নতুন ডিজাইন আপলোড হলেই এখানে নিজে নিজে চলে আসবে। 🌐 https://tamaddunhub.blogspot.com/"})
         log(f"test message: ok={res.get('ok')}")
+        if res.get("ok"):
+            msg = res.get("result") or {}
+            if msg.get("message_id"):
+                react_to(cfg, msg.get("chat", {}).get("id") or cfg["channel"],
+                         msg["message_id"])
         return 0 if res.get("ok") else 1
 
     feed = fetch_feed()
@@ -147,17 +201,24 @@ def main():
         return 0
     if not new:
         log("run: no new posts")
-        return 0
-    for e in new:
-        ok, res = post_entry(cfg, e)
-        log(f"posted {e['title']}: ok={ok} msg_id={(res.get('result') or {}).get('message_id')}")
-        if ok:
-            posted.add(e["id"])
-            state["posted"] = sorted(posted)
-            save_state(state)
-        else:
-            log(f"ERROR response: {res}")
-            return 1
+    else:
+        for e in new:
+            ok, res = post_entry(cfg, e)
+            log(f"posted {e['title']}: ok={ok} msg_id={(res.get('result') or {}).get('message_id')}")
+            if ok:
+                posted.add(e["id"])
+                state["posted"] = sorted(posted)
+                save_state(state)
+                # Auto-react to the post we just sent.
+                msg = res.get("result") or {}
+                if msg.get("message_id"):
+                    react_to(cfg, msg.get("chat", {}).get("id") or cfg["channel"],
+                             msg["message_id"])
+            else:
+                log(f"ERROR response: {res}")
+                return 1
+    # React to any channel posts made by hand since the last run.
+    react_to_new_channel_posts(cfg, state)
     return 0
 
 
