@@ -1,0 +1,33 @@
+name: Tamaddun Hub Scheduled Posts
+
+# Posts due queue items and the Friday Jummah greeting to @tamaddunhub.
+# Runs every day at 00:00 UTC (06:00 Dhaka). The script itself checks
+# whether today is Friday for the Jummah post, and marks posted items
+# done in schedule.json so nothing posts twice.
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Post due items and Friday Jummah greeting
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python3 telegram-bot/scheduled_posts.py --live
+      - name: Save schedule state
+        run: |
+          git config user.name "tamaddun-hub-bot"
+          git config user.email "bot@tamaddunhub.local"
+          git add telegram-bot/schedule.json telegram-bot/schedule_state.json || true
+          git diff --cached --quiet || git commit -m "Update scheduled posts state [skip ci]"
+          git push
