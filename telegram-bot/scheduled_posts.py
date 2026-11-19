@@ -9,6 +9,18 @@ What it does:
   - Marks posted items done in schedule.json and remembers the last
     Jummah post date in schedule_state.json, so nothing posts twice.
 
+Schedule rules (per entry):
+  - `date: "YYYY-MM-DD"` → posts ONCE on that date (overdue items post
+    the next run too, then are marked done).
+  - `days: ["Mon", "Wed", "Fri"]` → posts on those weekdays, RECURRING
+    (Asia/Dhaka weekday). Same-day re-post is blocked via
+    schedule_state.json `posted_days` (key → last posted date).
+  - Both `date` and `days` → the date wins (one-time only).
+  - Neither → never posts (same as before: a dateless item is due "9999").
+  - `enabled: false` skips the entry entirely (any kind).
+  - For recurring (`days`) items the `done` flag is ignored — they keep
+    recurring until disabled. Only one-time (`date`) items get `done`.
+
 Usage:
   python3 scheduled_posts.py            # dry-run (default): prints what WOULD post
   python3 scheduled_posts.py --live     # actually posts, marks done, reacts ❤️
@@ -42,9 +54,31 @@ STATE = os.path.join(BASE, "schedule_state.json")
 ADMIN_API = "https://tamaddun-hub-admin.vercel.app/api/telegram"
 REACTION = "❤️"
 
+DAY_CODES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+DAY_FULL = {"Monday": "Mon", "Tuesday": "Tue", "Wednesday": "Wed",
+            "Thursday": "Thu", "Friday": "Fri", "Saturday": "Sat",
+            "Sunday": "Sun"}
+
 
 def log(msg):
     print(msg, flush=True)
+
+
+def normalize_days(value):
+    """Accept ['Fri'], ['Friday'], ['fri'] … → ['Fri']. Unknown → dropped."""
+    out = []
+    for v in value or []:
+        s = str(v).strip()
+        if not s:
+            continue
+        code = s[:3].title()
+        if code in DAY_CODES and code not in out:
+            out.append(code)
+    return out
+
+
+def weekday_code(weekday_full):
+    return DAY_FULL.get(weekday_full, weekday_full[:3].title())
 
 
 def load_json(path, default):
@@ -175,41 +209,69 @@ def post_via_admin(caption, image):
     return True, ""  # admin API does not return the message id
 
 
-def main():
+def due_items(schedule, state, today, weekday_full):
+    """Which entries are due today. Returns a list of dicts:
+    {kind, ref, image, caption, index, key}.
+    kind: 'queue' (one-time date), 'queue_days' (recurring weekday),
+    'jummah'. Pure function — no I/O, safe to unit-test."""
+    code = weekday_code(weekday_full)
+    due = []
+    for idx, item in enumerate(schedule.get("queue", [])):
+        if item.get("enabled") is False:
+            continue
+        image = item.get("image", "")
+        caption = item.get("caption", "")
+        date = (item.get("date") or "").strip()
+        if date:
+            # One-time: posts once on (or after) the date, then done.
+            if not item.get("done") and date <= today:
+                due.append({"kind": "queue", "ref": date, "image": image,
+                            "caption": caption, "index": idx, "key": None})
+            continue
+        days = normalize_days(item.get("days"))
+        if days and code in days:
+            key = item.get("id") or f"q{idx}"
+            if state.get("posted_days", {}).get(key) != today:
+                due.append({"kind": "queue_days", "ref": today,
+                            "image": image, "caption": caption,
+                            "index": idx, "key": key})
+    # Friday Jummah greeting, once per Friday.
+    j = schedule.get("jummah", {}) or {}
+    j_days = normalize_days(j.get("days")) or ["Fri"]
+    if j.get("enabled") and code in j_days and \
+            state.get("last_jummah_posted") != today:
+        due.append({"kind": "jummah", "ref": today,
+                    "image": j.get("image", ""), "caption": j.get("caption", ""),
+                    "index": None, "key": None})
+    return due
+
+
+def main(argv=None):
     ap = argparse.ArgumentParser(description="Tamaddun Hub scheduled posts (dry-run by default)")
     ap.add_argument("--live", action="store_true", help="actually post (default: dry-run)")
     ap.add_argument("--via-admin", action="store_true",
                     help="post through the admin panel API (needs TAMADDUN_ADMIN_PASS)")
     ap.add_argument("--date", help="pretend today is YYYY-MM-DD (testing only)")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     today = args.date or datetime.now(DHAKA).strftime("%Y-%m-%d")
     weekday = datetime.strptime(today, "%Y-%m-%d").strftime("%A")
     schedule = load_json(SCHEDULE, {"jummah": {}, "queue": []})
-    state = load_json(STATE, {"last_jummah_posted": "", "posted": []})
+    state = load_json(STATE, {"last_jummah_posted": "", "posted": [],
+                              "posted_days": {}})
+    state.setdefault("posted_days", {})
     log(f"today: {today} ({weekday}); mode: {'LIVE' if args.live else 'DRY-RUN (nothing will be posted)'}")
 
-    due = []  # (kind, ref, image, caption)
-    # 1. Queue items due today (or earlier) and not done.
-    for item in schedule.get("queue", []):
-        if item.get("done"):
-            continue
-        if item.get("date", "9999") <= today:
-            due.append(("queue", item.get("date", "?"),
-                        item.get("image", ""), item.get("caption", "")))
-    # 2. Friday Jummah greeting, once per Friday.
-    j = schedule.get("jummah", {}) or {}
-    if j.get("enabled") and weekday == "Friday" and \
-            state.get("last_jummah_posted") != today:
-        due.append(("jummah", today, j.get("image", ""), j.get("caption", "")))
-
+    due = due_items(schedule, state, today, weekday)
     if not due:
         log("nothing due today.")
         return 0
 
     cfg = None if args.via_admin else load_config()
     posted_any = False
-    for kind, ref, image, caption in due:
+    for entry in due:
+        kind, ref = entry["kind"], entry["ref"]
+        image, caption = entry["image"], entry["caption"]
         short = (caption or "")[:80].replace("\n", " ")
         if not args.live:
             log(f"WOULD POST [{kind} {ref}]: image={image or '(none)'} caption='{short}…'")
@@ -224,15 +286,14 @@ def main():
             log(f"POSTED [{kind} {ref}] message_id={mid or '?'}")
             posted_any = True
             if kind == "queue":
-                for item in schedule.get("queue", []):
-                    if not item.get("done") and item.get("date") == ref and \
-                            item.get("caption") == caption:
-                        item["done"] = True
-                        item["posted_at"] = today
-                        if mid:
-                            item["posted_message_id"] = mid
-                        break
-            else:
+                item = schedule["queue"][entry["index"]]
+                item["done"] = True
+                item["posted_at"] = today
+                if mid:
+                    item["posted_message_id"] = mid
+            elif kind == "queue_days":
+                state["posted_days"][entry["key"]] = today
+            else:  # jummah
                 state["last_jummah_posted"] = today
         except Exception as e:
             log(f"ERROR posting [{kind} {ref}]: {e}")

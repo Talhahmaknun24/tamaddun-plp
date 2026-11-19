@@ -2,6 +2,7 @@
   "jummah": {
     "caption": "🕌 জুম্মা মোবারক!\n\nআল্লাহ আপনার জুম্মা কবুল করুন। নতুন নতুন ডিজাইন পেতে ঘুরে আসুন 👉 https://tamaddunhub.blogspot.com/\n\n© Tamaddun Design",
     "enabled": true,
+    "days": ["Fri"],
     "image": "https://raw.githubusercontent.com/Talhahmaknun24/tamaddun-plp/main/previews/jumma-mubarak-post-preview.jpg"
   },
   "queue": []
